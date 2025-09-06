@@ -1,4 +1,4 @@
-name: Flutter Build APK
+name: Flutter Build
 
 on:
   push:
@@ -11,29 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: stable
+
+      - name: Ensure Android V2 embedding
+        run: |
+          if [ -d "android" ]; then
+            echo "Removing old android folder..."
+            rm -rf android
+          fi
+          flutter create .
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Ensure android folder exists
-        run: |
-          if [ ! -d "android" ]; then
-            echo "⚠️ android folder missing, creating..."
-            flutter create .
-          else
-            echo "✅ android folder already exists"
-          fi
-
       - name: Build release APK
         run: flutter build apk --release
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: darkevil_game-apk
