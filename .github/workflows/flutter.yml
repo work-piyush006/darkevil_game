@@ -20,13 +20,11 @@ jobs:
           channel: stable
           flutter-version: '3.24.0'
 
-      - name: Ensure Android V2 embedding
+      - name: Ensure Android folder (v2 embedding)
         run: |
-          if [ -d "android" ]; then
-            echo "Removing old android folder..."
-            rm -rf android
+          if [ ! -d "android" ]; then
+            flutter create .
           fi
-          flutter create .
 
       - name: Install dependencies
         run: flutter pub get
