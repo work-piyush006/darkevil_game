@@ -18,17 +18,15 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.3'
 
-      - name: Ensure Android folder (V2 embedding)
+      - name: Ensure Android V2 embedding
         run: |
           if [ -d "android" ]; then
             echo "Removing old android folder..."
             rm -rf android
           fi
           flutter create .
-          # SDK 35 fix
-          sed -i 's/compileSdk = [0-9]\+/compileSdk = 35/' android/app/build.gradle
 
       - name: Install dependencies
         run: flutter pub get
