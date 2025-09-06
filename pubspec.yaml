@@ -1,0 +1,30 @@
+name: darkevil_game
+description: A 2D retro adventure game made by DaRkEviL Developers
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^1.15.0
+  flame_audio: ^1.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/hero.png
+    - assets/enemies.png
+    - assets/boss.png
+    - assets/bg.png
+    - assets/intro_scene.png
+    - assets/logo.png
