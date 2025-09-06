@@ -1,6 +1,6 @@
 name: darkevil_game
-description: A 2D side-scrolling adventure game built with Flame.
-publish_to: 'none'
+description: A retro side-scrolling adventure game made with Flutter & Flame.
+publish_to: "none" # private project
 
 version: 1.0.0+1
 
@@ -10,19 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Game engine
   flame: ^1.13.1
-  flame_audio: ^2.1.4
-
-  # Extra
-  cupertino_icons: ^1.0.8
-  shared_preferences: ^2.3.2
+  flutter_lints: ^3.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.2
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
@@ -34,4 +28,9 @@ flutter:
     - assets/bg.png
     - assets/intro_scene.png
     - assets/logo.png
-    - assets/audio/
+
+  # Uncomment if you want custom fonts
+  # fonts:
+  #   - family: GameFont
+  #     fonts:
+  #       - asset: assets/fonts/game_font.ttf
